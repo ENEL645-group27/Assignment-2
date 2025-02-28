@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --job-name=garbage_classification
+#SBATCH --output=outputcc3.text
+#SBATCH --error=errorcc3.text
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=16GB
+#SBATCH --time=04:00:00
+
+
+
+# Activate the virtual environment
+source ~/software/init-conda
+conda activate pytorch
+
+# Change to the working directory
+python /work/TALC/enel645_2025w/transfer_learning/a2ip/cm2.py
+
+
